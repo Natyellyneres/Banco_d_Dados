@@ -48,3 +48,57 @@ INSERT INTO Assiste (id_pessoa, id_anime, data_assistiu) VALUES
 (2, 1, '2024-08-10'),
 (3, 5, '2024-09-03'),
 (5, 3, '2024-10-12');
+
+-- 1
+SELECT nome FROM Pessoa;
+-- 2
+SELECT titulo FROM Anime;
+-- 3
+SELECT genero FROM Anime
+WHERE genero = 'Ação';
+
+-- 4 
+SELECT nome, idade from pessoa
+where idade > 25;
+
+-- 5
+select titulo, ano_lancamento from Anime
+where ano_lancamento < 2010;
+
+-- 6
+select Pessoa.nome 
+from Pessoa 
+join Assiste on Pessoa.id_pessoa = Assiste.id_pessoa
+join Anime on Assiste.id_anime = Anime.id_anime
+where Anime.titulo = 'Naruto';
+
+-- 7
+select Pessoa.nome 
+from Pessoa 
+join Assiste on Pessoa.id_pessoa = Assiste.id_pessoa
+join Anime on Assiste.id_anime = Anime.id_anime
+where Anime.titulo = 'One Piece';
+
+-- 8
+select Assiste.data_assistiu
+from Assiste
+join Pessoa on pessoa.id_pessoa = assiste.id_pessoa
+join Anime on assiste.id_anime = anime.id_anime
+where Pessoa.nome='Carla' and Anime.titulo='Death Note';
+
+-- 9
+Select Anime.titulo
+from Anime
+join Assiste on Assiste.id_anime = anime.id_anime
+join Pessoa on pessoa.id_pessoa = assiste.id_pessoa
+where Pessoa.nome='Diego';
+
+-- 10
+select Anime.titulo
+from Anime 
+join Assiste on anime.id_anime = assiste.id_anime
+where year(data_assistiu) = 2024;
+
+-- 11
+select  
+
