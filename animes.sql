@@ -99,6 +99,28 @@ from Anime
 join Assiste on anime.id_anime = assiste.id_anime
 where year(data_assistiu) = 2024;
 
+-- asc 
+-- desc
 -- 11
-select  
+select Anime.titulo, pessoa.nome
+from Anime 
+join Assiste on Assiste.id_anime = anime.id_anime 
+join Pessoa on Pessoa.id_pessoa = assiste.id_pessoa
+order by Pessoa.idade asc Limit 1 ;     
+
+-- 12
+select Anime.titulo, Anime.ano_lancamento
+from Anime 
+join Assiste on Assiste.id_anime = Anime.id_anime
+join Pessoa on Pessoa.id_pessoa = assiste.id_pessoa
+where Pessoa.nome = 'Alice';
+
+-- 13
+Select Pessoa.nome, Anime.genero
+from Pessoa
+join Assiste on Assiste.id_pessoa = pessoa.id_pessoa 
+join Anime 
+ where Anime.genero = 'Aventura';
+
+                                            
 
